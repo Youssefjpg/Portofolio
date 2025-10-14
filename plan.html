@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Plan — Simple Treasure Map</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --parchment:#f5e6c8;
+      --parchment-deep:#ead7ad;
+      --ink:#2b1d0e;
+      --ruby:#8b2b2b;
+      --shadow: rgba(0,0,0,0.22);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:62.5%}
+    body{
+      min-height:100vh;
+      font-family:'Crimson Text', Georgia, serif;
+      color:var(--ink);
+      background:linear-gradient(180deg,var(--parchment) 0%, var(--parchment-deep) 100%);
+      display:flex; flex-direction:column; align-items:center; gap:1.2rem; padding:2.4rem 1.6rem;
+    }
+
+    /* --- Header Logo --- */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 4%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: transparent;
+      z-index: 1000;
+    }
+
+    .site-logo {
+      font-family: 'Pirata One', serif;
+      font-size: 2.8rem;
+      color: var(--ruby);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .site-logo:hover {
+      transform: scale(1.1);
+      color: #a32727;
+    }
+
+    h1{
+      font-family:'Pirata One', serif;
+      font-size:clamp(3rem,4vw,4.6rem);
+      margin-top:6rem; /* space for fixed header */
+    }
+
+    h2{
+      font-size:2rem;
+      margin-bottom:1.5rem;
+    }
+
+    /* Simple parchment panel */
+    .map-wrap{ width:min(1000px, 95vw); margin-top:1rem; }
+    .paper{
+      width:100%; aspect-ratio: 10 / 6; background: var(--parchment);
+      border-radius: 8px; box-shadow: 0 10px 28px var(--shadow), inset 0 0 60px rgba(0,0,0,0.06);
+      position:relative; overflow:hidden; border: 2px solid rgba(43,29,14,0.15);
+    }
+
+    /* Red dot beacon (lights & dims) */
+    .current{ fill: var(--ruby); }
+    .pulse{
+      fill: none; stroke: var(--ruby); stroke-width: 10; stroke-opacity: .55;
+      transform-origin: center; transform-box: fill-box;
+      animation: ping 1.6s ease-out infinite;
+    }
+    @keyframes ping{ 0%{ transform:scale(.5); stroke-opacity:.6;} 100%{ transform:scale(2.2); stroke-opacity:0; } }
+
+    /* Helper text */
+    .note{ font-size:1.4rem; opacity:.7; }
+  </style>
+</head>
+<body>
+  <!-- Fixed header with clickable name -->
+  <header class="site-header">
+    <a href="index.html" class="site-logo">Youssef</a>
+  </header>
+
+  <h1>My Plan</h1>
+  <h2>Road to getting into the digital forensics field.</h2>
+
+  <div class="map-wrap">
+    <div class="paper">
+      <!--
+        To move the red marker, adjust the cx/cy of the two circles below.
+        The SVG viewBox is 1200x720. Pick coordinates along the dashed path.
+      -->
+      <svg class="map" viewBox="0 0 1200 720" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Treasure map">
+        <!-- Light grain -->
+        <defs>
+          <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+            <rect width="6" height="6" fill="rgba(0,0,0,0)"/>
+            <circle cx="1" cy="1" r="0.6" fill="rgba(0,0,0,0.06)"/>
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="1200" height="720" fill="url(#grain)" opacity="0.35"/>
+
+        <!-- Start dot (black) and dashed path -->
+        <circle cx="980" cy="560" r="10" fill="#1b1b1b"/>
+        <path d="M 980 560 C 880 520, 760 520, 660 460 S 520 380, 440 420 300 500, 260 440 220 360, 200 320" 
+        stroke="#1b1b1b" stroke-width="6" 
+        stroke-linecap="round" stroke-dasharray="12 20" fill="none"/>
+
+        <!-- X at treasure -->
+        <g transform="translate(200,320) rotate(-18)">
+          <line x1="-14" y1="-14" x2="14" y2="14" stroke="var(--ruby)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="-14" y1="14" x2="14" y2="-14" stroke="var(--ruby)" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <!-- Label for Treasure X -->
+        <g class="checkpoint" transform="translate(200,300)">
+          <text x="0" y="-20" text-anchor="middle" font-size="20" fill="#2b1d0e" font-family="Crimson Text, Georgia, serif">
+            Computer Hacking Forensic Investigator Program!
+          </text>
+        </g>
+
+        <!-- CURRENT POSITION — red dot + pulsing ring -->
+        <circle class="pulse"   cx="880" cy="530" r="10" />
+        <circle class="current" cx="880" cy="530" r="6"  />
+
+        <!-- CHECKPOINTS (edit labels & positions) -->
+        <g class="checkpoint" transform="translate(760,500)">
+          <circle r="7" fill="#c49a3a" stroke="#7a5a18" stroke-width="2"/>
+          <text x="12" y="4" font-size="18" fill="#2b1d0e" font-family="Crimson Text, Georgia, serif">Finish a+ Network Course</text>
+        </g>
+
+        <g class="checkpoint" transform="translate(650,455)">
+          <circle r="7" fill="#c49a3a" stroke="#7a5a18" stroke-width="2"/>
+          <text x="12" y="4" font-size="18" fill="#2b1d0e">CompTIA a+ Network Certification Exam</text>
+        </g>
+
+        <g class="checkpoint" transform="translate(460,410)">
+          <circle r="7" fill="#c49a3a" stroke="#7a5a18" stroke-width="2"/>
+          <text x="0" y="-20" text-anchor="middle" font-size="18" fill="#2b1d0e">Finish a+ Cyber Course</text>
+        </g>
+
+        <g class="checkpoint" transform="translate(300,470)">
+          <circle r="7" fill="#c49a3a" stroke="#7a5a18" stroke-width="2"/>
+          <text x="-30" y="20" font-size="18" fill="#2b1d0e">CompTIA a+ Cyber Certification Exam</text>
+        </g>
+
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

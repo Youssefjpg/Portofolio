@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Youssef Hassan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --parchment: #f5e6c8;
+      --parchment-deep: #ead7ad;
+      --ink: #2b1d0e;
+      --ruby: #8b2b2b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { font-size: 62.5%; }
+
+    body {
+      font-family: 'Crimson Text', Georgia, serif;
+      background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* --- Header Logo --- */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 4%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: transparent;
+      z-index: 1000;
+    }
+
+    .site-logo {
+      font-family: 'Pirata One', serif;
+      font-size: 2.8rem;
+      color: var(--ruby);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .site-logo:hover {
+      transform: scale(1.1);
+      color: #a32727;
+    }
+
+    h1 {
+      font-family: 'Pirata One', serif;
+      font-size: 4rem;
+      color: var(--ruby);
+      margin-bottom: 2rem;
+      margin-top: 6rem; /* adds space so it’s not hidden under fixed header */
+    }
+
+    .contact-info {
+      font-size: 1.8rem;
+      line-height: 2.6rem;
+      background: #fff9e8;
+      border: 2px solid rgba(43,29,14,0.15);
+      border-radius: 10px;
+      padding: 2.4rem 3rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+    }
+
+    .contact-info a {
+      color: var(--ruby);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 1.4rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="site-logo">Youssef</a>
+  </header>
+  
+  <h1>Contact</h1>
+
+  <div class="contact-info">
+    <p>📞 <strong>Phone:</strong> (423) 313-8819</p>
+    <p>📧 <strong>Email:</strong> 
+      <a href="mailto:Youssefmostafahassan1@gmail.com">Youssefmostafahassan1@gmail.com</a>
+    </p>
+  </div>
+
+  <footer>© 2025 Youssef Hassan</footer>
+</body>
+</html>

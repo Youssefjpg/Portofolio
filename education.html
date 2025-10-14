@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education — Youssef Hassan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --parchment:#f5e6c8;
+      --ink:#2b1d0e;
+      --gold:#c49a3a;
+      --ruby:#8b2b2b;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{font-size:62.5%;}
+    body{
+      font-family:'Crimson Text', Georgia, serif;
+      background:linear-gradient(180deg,var(--parchment) 0%,#ead7ad 100%);
+      color:var(--ink);
+      min-height:100vh;
+      padding:4rem 8%;
+    }
+
+    /* --- Header Logo --- */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 4%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: transparent;
+      z-index: 1000;
+    }
+
+    .site-logo {
+      font-family: 'Pirata One', serif;
+      font-size: 2.8rem;
+      color: var(--ruby);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .site-logo:hover {
+      transform: scale(1.1);
+      color: #a32727;
+    }
+
+    h1{
+      font-family:'Pirata One', serif;
+      font-size:4.2rem;
+      text-align:center;
+      margin-bottom:4rem;
+      color:var(--ruby);
+      margin-top:6rem; /* prevent overlap with fixed header */
+    }
+
+    .edu-section{
+      display:flex;
+      flex-direction:row;
+      align-items:center;
+      justify-content:space-between;
+      gap:4rem;
+      background:#fff9e8;
+      border:2px solid rgba(43,29,14,0.15);
+      border-radius:12px;
+      padding:2.4rem;
+      box-shadow:0 8px 22px rgba(0,0,0,0.15);
+      margin-bottom:3rem;
+      flex-wrap:wrap;
+    }
+
+    .edu-text{
+      flex:1;
+      min-width:260px;
+    }
+
+    .edu-text h2{
+      font-family:'Pirata One', serif;
+      font-size:3rem;
+      color:var(--ruby);
+      margin-bottom:1rem;
+    }
+
+    .edu-text p{
+      font-size:1.8rem;
+      line-height:1.6;
+    }
+
+    .edu-img{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:2rem;
+      flex:1;
+      flex-wrap:wrap;
+    }
+
+    .edu-img img{
+      max-width:220px;
+      height:auto;
+      border-radius:8px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.2);
+      transition:transform 0.3s ease;
+    }
+
+    .edu-img img:hover{
+      transform:scale(1.05);
+    }
+
+    footer{
+      text-align:center;
+      margin-top:4rem;
+      font-size:1.4rem;
+      opacity:0.7;
+    }
+
+    @media(max-width:800px){
+      .edu-section{
+        flex-direction:column;
+        text-align:center;
+      }
+      .edu-img{
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed header with clickable name -->
+  <header class="site-header">
+    <a href="index.html" class="site-logo">Youssef</a>
+  </header>
+
+  <h1>Education</h1>
+
+  <!-- ===== University of Connecticut ===== -->
+  <section class="edu-section">
+    <div class="edu-text">
+      <h2>University of Connecticut</h2>
+      <p>Bachelor of Science in Computer Science<br>
+      Graduated May 2023</p>
+    </div>
+
+    <div class="edu-img">
+      <img src="uconn-logo.png" alt="UConn Logo" style="max-width:160px;">
+      <img src="uconn.jpg" alt="Bachelor's Degree Certificate">
+    </div>
+  </section>
+
+  <!-- ===== University of Bridgeport ===== -->
+  <section class="edu-section">
+    <div class="edu-text">
+      <h2>University of Bridgeport</h2>
+      <p>Master of Science in Artificial Intelligence<br>
+      Expected Graduation: May 2026</p>
+    </div>
+
+    <div class="edu-img">
+      <img src="ub-logo.png" alt="University of Bridgeport Logo" style="max-width:160px;">
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Youssef Hassan — Education Page
+  </footer>
+</body>
+</html>
